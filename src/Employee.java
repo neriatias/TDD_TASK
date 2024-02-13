@@ -107,7 +107,7 @@ public class Employee {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
+                ", phon='" + phone + '\'' +
                 ", address='" + address + '\'' +
                 ", salary=" + salary +
                 '}';
