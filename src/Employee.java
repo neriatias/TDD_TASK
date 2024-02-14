@@ -11,14 +11,16 @@ public class Employee {
     private int salary;
     private int count=0;
 
-    public Employee(String id, String firstName, String lastName, String email, String phone, String address, int salary) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phone = phone;
-        this.address = address;
-        this.salary = salary;
+    public Employee() {
+         id = generateRandomId();
+        String name = generateRandomName();
+        String[] nameParts = name.split(" ");
+        firstName = nameParts[0];
+        lastName = nameParts[1];
+        email = generateRandomEmail(firstName, lastName);
+        phone = generateRandomPhone();
+        address = generateRandomAddress();
+        salary = generateRandomSalary();
         this.count++;
     }
 
@@ -64,33 +66,20 @@ public class Employee {
     public int getSalary() {
         return this.salary;
     }
-
-
     public static void main(String[] args) {
         int[] salary_arr = new int[10000];
         Employee[] emp = new Employee[10000];
 
         for (int i = 0; i < 10000; i++) {
-            String id = generateRandomId();
-            String name = generateRandomName();
-            String[] nameParts = name.split(" ");
-            String firstName = nameParts[0];
-            String lastName = nameParts[1];
-            String email = generateRandomEmail(firstName, lastName);
-            String phone = generateRandomPhone();
-            String address = generateRandomAddress();
-            int salary = generateRandomSalary();
-            Employee employee = new Employee(id, firstName, lastName, email, phone, address, salary);
+            Employee employee = new Employee();
             emp[i] = employee;
         }
-        long startTime = System.currentTimeMillis(); // זמן התחלתי
+        long startTime = System.currentTimeMillis(); // start time
 
-//        bubbleSort(emp);
-        quickSort(emp, 0, emp.length - 1);
 
-        long endTime = System.currentTimeMillis(); // זמן סיום
+        long endTime = System.currentTimeMillis(); // end time
 
-        long duration = endTime - startTime; // משך הזמן במילישניות
+        long duration = endTime - startTime;
 
         System.out.println("Sorted array:");
         for (int i = 0; i < 10000; i++) {
@@ -100,6 +89,7 @@ public class Employee {
 
         System.out.println("\nTime taken for the sort: " + duration + " milliseconds");
     }
+
 
     @Override
     public String toString() {
@@ -114,43 +104,5 @@ public class Employee {
                 '}';
     }
 
-//    public static void bubbleSort(Employee[] arr) {
-//        int n = arr.length;
-//        for (int i = 0; i < n-1; i++) {
-//            for (int j = 0; j < n-i-1; j++) {
-//                if (arr[j].getSalary() > arr[j+1].getSalary()) {
-//                    Employee temp = arr[j];
-//                    arr[j] = arr[j+1];
-//                    arr[j+1] = temp;
-//                }
-//            }
-//        }
-//    }
-
-    public static void quickSort(Employee[] arr, int low, int high) {
-        if (low < high) {
-            int pi = partition(arr, low, high);
-            quickSort(arr, low, pi - 1);
-            quickSort(arr, pi + 1, high);
-        }
-    }
-
-    private static int partition(Employee[] arr, int low, int high) {
-        double pivot = arr[high].getSalary();
-        int i = low - 1;
-        for (int j = low; j < high; j++) {
-            if (arr[j].getSalary() < pivot) {
-                i++;
-                Employee temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
-        }
-        Employee temp = arr[i + 1];
-        arr[i + 1] = arr[high];
-        arr[high] = temp;
-
-        return i + 1;
-    }
 
 }
