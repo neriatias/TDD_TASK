@@ -13,5 +13,6 @@ public class Employee_Tests {
 
     @Test
     public void SortedArrTest() {
+        System.out.println("\nTime taken for the sort:   milliseconds");
     }
 }
