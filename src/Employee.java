@@ -9,6 +9,7 @@ public class Employee {
     private String phone;
     private String address;
     private int salary;
+    private int count=0;
 
     public Employee(String id, String firstName, String lastName, String email, String phone, String address, int salary) {
         this.id = id;
@@ -18,6 +19,7 @@ public class Employee {
         this.phone = phone;
         this.address = address;
         this.salary = salary;
+        this.count++;
     }
 
     public static String generateRandomId() {
@@ -86,7 +88,6 @@ public class Employee {
 //        bubbleSort(emp);
         quickSort(emp, 0, emp.length - 1);
 
-
         long endTime = System.currentTimeMillis(); // זמן סיום
 
         long duration = endTime - startTime; // משך הזמן במילישניות
@@ -97,7 +98,8 @@ public class Employee {
         }
 
 
-        System.out.println("\nTime taken for bubble sort: " + duration + " milliseconds");
+        System.out.println("\nTime taken for the sort: " + duration + " milliseconds");
+        System.out.println("it's all good!");
     }
 
     @Override

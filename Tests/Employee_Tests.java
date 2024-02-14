@@ -1,3 +1,17 @@
-public class Employee_Tests {
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
+import org.junit.Test;
+public class Employee_Tests {
+    @Test
+    public void ReturnValueTest() {
+    }
+
+    @Test
+    public void NoLossTest() {
+    }
+
+    @Test
+    public void SortedArrTest() {
+    }
 }
