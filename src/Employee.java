@@ -99,7 +99,6 @@ public class Employee {
 
 
         System.out.println("\nTime taken for the sort: " + duration + " milliseconds");
-        System.out.println("it's all good!");
     }
 
     @Override
