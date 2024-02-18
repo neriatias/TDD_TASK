@@ -12,7 +12,7 @@ public class Employee {
     private int count=0;
 
     public Employee() {
-         id = generateRandomId();
+        id = generateRandomId();
         String name = generateRandomName();
         String[] nameParts = name.split(" ");
         firstName = nameParts[0];
@@ -21,7 +21,6 @@ public class Employee {
         phone = generateRandomPhone();
         address = generateRandomAddress();
         salary = generateRandomSalary();
-        this.count++;
     }
 
     public static String generateRandomId() {
@@ -66,30 +65,6 @@ public class Employee {
     public int getSalary() {
         return this.salary;
     }
-    public static void main(String[] args) {
-        int[] salary_arr = new int[10000];
-        Employee[] emp = new Employee[10000];
-
-        for (int i = 0; i < 10000; i++) {
-            Employee employee = new Employee();
-            emp[i] = employee;
-        }
-        long startTime = System.currentTimeMillis(); // start time
-
-
-        long endTime = System.currentTimeMillis(); // end time
-
-        long duration = endTime - startTime;
-
-        System.out.println("Sorted array:");
-        for (int i = 0; i < 10000; i++) {
-            System.out.println(emp[i].toString());
-        }
-
-
-        System.out.println("\nTime taken for the sort: " + duration + " milliseconds");
-    }
-
 
     @Override
     public String toString() {

@@ -7,13 +7,20 @@ public class Employee_Tests {
     @Test
     public void SortedArrTest() {
         FactoryEmployee  employee_arr = new FactoryEmployee();
+        long startTime = System.currentTimeMillis(); // start time
         //employee_arr.employees = bubbleSort(employee_arr.employees)
         employee_arr.employees = FactoryEmployee.quickSort(employee_arr.employees,0,employee_arr.employees.length-1);
-        assertNotNull(employee_arr.employees);
-        assertEquals(10000, employee_arr.employees.length);
-        for (int i = 0; i <employee_arr.employees.length - 1; i++) {
-            assertTrue(employee_arr.employees[i].getSalary() <= employee_arr.employees[i + 1].getSalary());
+        long endTime = System.currentTimeMillis(); // end time
+        long duration = endTime - startTime;
+        System.out.println("\nTime taken for the sort: " + duration + " milliseconds");
+        for (int i = 0; i <employee_arr.employees.length; i++) {
+            System.out.println(employee_arr.employees[i].toString());
         }
-        employee_arr.employees.toString();
+
+        assertNotNull(employee_arr.employees); //Checking whether the function returns any value
+        assertEquals(10000, employee_arr.employees.length); //Checking whether the array has lost records
+        for (int i = 0; i <employee_arr.employees.length - 1; i++) {
+            assertTrue(employee_arr.employees[i].getSalary() <= employee_arr.employees[i + 1].getSalary()); //Checking whether the array is sorted
+        }
     }
 }

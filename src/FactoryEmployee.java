@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class FactoryEmployee {
 
     Employee[]  employees ;
@@ -28,18 +30,12 @@ public class FactoryEmployee {
     //quickSort(employee_arr, 0, employee_arr.length - 1);
 
     public static Employee[] quickSort(Employee[] arr, int low, int high) {
-      //  long startTime = System.currentTimeMillis(); // start time
-
         if (low < high) {
             int pi = partition(arr, low, high);
             quickSort(arr, low, pi - 1);
             quickSort(arr, pi + 1, high);
         }
 
-        //long endTime = System.currentTimeMillis(); // end time
-
-    //    long duration = endTime - startTime;
-      //  System.out.println("\nTime taken for the sort: " + duration + " milliseconds");
         return arr;
     }
 
@@ -60,6 +56,4 @@ public class FactoryEmployee {
 
         return i + 1;
     }
-
-
 }
