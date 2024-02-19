@@ -8,8 +8,8 @@ public class Employee {
     private String email;
     private String phone;
     private String address;
-    private int salary;
-    private int count=0;
+    private long salary;
+    private long count=0;
 
     public Employee() {
         id = generateRandomId();
@@ -62,13 +62,13 @@ public class Employee {
         return 3000 + random.nextInt(12000);
     }
 
-    public int getSalary() {
+    public long getSalary() {
         return this.salary;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
+
+    public void toStr() {
+        System.out.println ( "Employee{" +
                 "id='" + id + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
@@ -76,8 +76,7 @@ public class Employee {
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
                 ", salary=" + salary +
-                '}';
+                '}');
     }
-
 
 }

@@ -2,10 +2,10 @@ import java.util.Arrays;
 
 public class FactoryEmployee {
 
-    Employee[]  employees ;
+    Employee[] employees;
 
-    public FactoryEmployee(){
-          employees = new Employee[10000];
+    public FactoryEmployee() {
+        employees = new Employee[10000];
         for (int i = 0; i < 10000; i++) {
             Employee employee = new Employee();
             employees[i] = employee;
@@ -56,4 +56,11 @@ public class FactoryEmployee {
 
         return i + 1;
     }
+
+    public void toStr() {
+        for (int i = 0; i < employees.length; i++) {
+            employees[i].toStr();
+        }
+    }
 }
+
